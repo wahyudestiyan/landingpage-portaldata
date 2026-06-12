@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+
+import heroImage from "../assets/images/hero.png";
+import borobudurBg from "../assets/images/borobudur-bg.png";
+---
+
+<section
+  class="relative h-[100vh] flex items-center overflow-hidden bg-white snap-start"
+>
+  <!-- Background Borobudur with gradient overlay -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={borobudurBg}
+      alt="Siluet Borobudur"
+      class="absolute bottom-0 left-0 w-full h-[100%] lg:h-[85%] object-cover object-bottom opacity-[0.08] pointer-events-none"
+    />
+    <!-- Radial gradient for depth -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 30% 80%, rgba(72, 161, 77, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 20%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);"
+    >
+    </div>
+  </div>
+
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+  >
+    <!-- Text Column -->
+    <div class="flex flex-col items-start gap-6">
+      <!-- Trust Badge -->
+      <div
+        class="reveal-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-border-ui text-xs font-medium text-text-body"
+      >
+        <span class="w-2 h-2 rounded-full bg-green-primary animate-pulse"
+        ></span>
+        Portal Data Resmi Provinsi Jawa Tengah
+      </div>
+
+      <h1
+        class="reveal-up font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1] tracking-tight"
+        style="transition-delay: 100ms;"
+      >
+        <span class="gradient-text">Ekosistem</span><br />Data Jateng
+      </h1>
+
+      <p
+        class="reveal-up text-base lg:text-lg text-text-body leading-relaxed max-w-lg"
+        style="transition-delay: 200ms;"
+      >
+        Portal resmi Ekosistem Data Provinsi Jawa Tengah yang mengintegrasikan layanan data terbuka, 
+        data sektoral, dan data geospasial dalam satu platform terpadu untuk mendukung tata kelola pemerintahan yang transparan, kolaboratif, dan berbasis data.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div
+        class="reveal-up flex flex-wrap items-center gap-3 mt-2"
+        style="transition-delay: 300ms;"
+      >
+        <a
+  href="#open-data"
+  class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm hover:-translate-y-0.5 transition-all duration-300"
+  style="
+    background: linear-gradient(to right, #96bd5f, #91b85a);
+    box-shadow: 0 10px 20px rgba(156, 176, 128, 0.25);
+  "
+  onmouseover="this.style.boxShadow='0 15px 30px rgba(156,176,128,0.35)'"
+  onmouseout="this.style.boxShadow='0 10px 20px rgba(156,176,128,0.25)'"
+>
+  Jelajahi Data
+  <svg
+    class="w-4 h-4"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2.5"
+      d="M13 7l5 5m0 0l-5 5m5-5H6"
+    />
+  </svg>
+</a>
+        <a
+          href="#tentang"
+          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border-ui text-text-body font-semibold text-sm hover:border-text-muted hover:text-text-primary hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Pelajari Lebih Lanjut
+        </a>
+      </div>
+    </div>
+
+    <!-- Image Column -->
+    <div
+      class="reveal-up w-full relative flex items-center justify-center"
+      style="transition-delay: 400ms;"
+    >
+      <!-- Subtle glow behind image -->
+      <div
+        class="absolute inset-0 rounded-full animate-pulse-glow pointer-events-none"
+        style="background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%); filter: blur(40px);"
+      >
+      </div>
+      <Image
+        src={heroImage}
+        alt="Visual Ekosistem Data Jateng"
+        class="w-full lg:w-[105%] h-auto max-h-[55vh] object-contain relative z-10 animate-float"
+        style="filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));"
+      />
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-text-muted"
+  >
+    <span class="text-xs font-medium tracking-wider uppercase">Scroll</span>
+    <svg
+      class="w-5 h-5 animate-bounce-gentle"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>

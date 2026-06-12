@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import TentangSection from "../components/TentangSection.astro";
+import GatewaySection from "../components/GatewaySection.astro";
+import Footer from "../components/Footer.astro";
+
+import openDataImg from "../assets/images/open-data.png";
+import satuDataImg from "../assets/images/satu-data.png";
+import satuPetaImg from "../assets/images/satu-peta.png";
+---
+
+<Layout title="Beranda">
+  <Navbar />
+  <main>
+    <Hero />
+    <TentangSection />
+{/*
+    <GatewaySection
+      id="open-data"
+      title="Open Data Jateng"
+      description="Portal data terbuka Provinsi Jawa Tengah yang menyediakan akses publik terhadap data dan informasi pemerintah daerah secara terbuka, mudah diakses, dan berkelanjutan. Mendukung transparansi, akuntabilitas, serta pemanfaatan data untuk riset, inovasi, dan partisipasi masyarakat."
+      buttonText="Cari Data"
+      buttonUrl="https://data.jatengprov.go.id"
+      theme="orange"
+      image={openDataImg}
+      stats={[
+        { value: "1,450+", label: "Dataset Terbuka" },
+        { value: "48", label: "OPD Terhubung" },
+        { value: "1.2M", label: "Akses Publik" },
+      ]}
+    />
+*/}
+    <GatewaySection
+      id="satu-data"
+      title="Satu Data Jateng"
+      description="Platform interoperabilitas data antar Organisasi Perangkat Daerah se-Jawa Tengah. Menyatukan standar data, metadata, dan mekanisme berbagi data untuk mendukung perencanaan dan evaluasi pembangunan yang akurat dan terkoordinasi."
+      buttonText="Akses Data"
+      buttonUrl="https://satudata.jatengprov.go.id"
+      theme="blue"
+      isReversed={true}
+      image={satuDataImg}
+    />
+
+    <GatewaySection
+      id="satu-peta"
+      title="Satu Peta Jateng"
+      description="Portal geospasial terpadu yang menyajikan peta digital interaktif Provinsi Jawa Tengah. Menyediakan data spasial tematik untuk perencanaan tata ruang, infrastruktur, lingkungan, dan analisis potensi wilayah."
+      buttonText="Lihat Peta"
+      buttonUrl="https://satupeta.jatengprov.go.id"
+      theme="green"
+      image={satuPetaImg}
+      stats={[
+        { value: "31", label: "Produsen Data" },
+        { value: "40", label: "Pengguna" },
+        { value: "70", label: "Dataset Terpublikasi" },
+      ]}
+    />
+
+    <Footer />
+  </main>
+</Layout>

@@ -1,0 +1,170 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonUrl: string;
+  theme: "orange" | "blue" | "green";
+  isReversed?: boolean;
+  image: any;
+  stats?: { value: string; label: string }[];
+}
+
+const {
+  id,
+  title,
+  description,
+  buttonText,
+  buttonUrl,
+  theme,
+  isReversed = false,
+  image,
+  stats = [],
+} = Astro.props;
+
+// Theme mapping — refined white-based with glow accents
+const themeMap = {
+  orange: {
+    sectionBg: "bg-white",
+    badge: "bg-orange-light text-orange-primary",
+    textPrimary: "text-text-primary",
+    textBody: "text-text-body",
+    button:
+      "bg-gradient-to-r from-orange-primary to-orange-dark text-white shadow-lg shadow-orange-primary/20 hover:shadow-xl hover:shadow-orange-primary/30",
+    accentText: "text-orange-primary",
+    statBg: "bg-white",
+    statBorder: "border-border-ui hover:border-orange-border",
+    statGlow: "hover:shadow-orange-glow",
+    imageGlow: "rgba(255, 107, 53, 0.08)",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>`,
+  },
+  blue: {
+    sectionBg: "bg-surface",
+    badge: "bg-blue-light text-blue-primary",
+    textPrimary: "text-text-primary",
+    textBody: "text-text-body",
+    button:
+      "bg-gradient-to-r from-blue-primary to-blue-dark text-white shadow-lg shadow-blue-primary/20 hover:shadow-xl hover:shadow-blue-primary/30",
+    accentText: "text-blue-primary",
+    statBg: "bg-white",
+    statBorder: "border-border-ui hover:border-blue-border",
+    statGlow: "hover:shadow-blue-glow",
+    imageGlow: "rgba(59, 130, 246, 0.08)",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" /></svg>`,
+  },
+  green: {
+    sectionBg: "bg-white",
+    badge: "bg-green-light text-green-primary",
+    textPrimary: "text-text-primary",
+    textBody: "text-text-body",
+    button:
+      "bg-gradient-to-r from-green-primary to-green-dark text-white shadow-lg shadow-green-primary/20 hover:shadow-xl hover:shadow-green-primary/30",
+    accentText: "text-green-primary",
+    statBg: "bg-white",
+    statBorder: "border-border-ui hover:border-green-border",
+    statGlow: "hover:shadow-green-glow",
+    imageGlow: "rgba(16, 201, 143, 0.08)",
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" /></svg>`,
+  },
+};
+
+const activeTheme = themeMap[theme];
+const textReveal = isReversed ? "reveal-right" : "reveal-left";
+const imageReveal = isReversed ? "reveal-left" : "reveal-right";
+---
+
+<section
+  id={id}
+  class={`relative h-[calc(100vh-5rem)] flex items-center snap-start ${activeTheme.sectionBg} transition-colors duration-500 overflow-hidden`}
+>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+  >
+    <!-- Text Column -->
+    <div
+      class={`${textReveal} flex flex-col items-start gap-5 ${isReversed ? "lg:order-last" : ""}`}
+    >
+      <!-- Section Badge -->
+      <div
+        class={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase ${activeTheme.badge}`}
+      >
+        <Fragment set:html={activeTheme.icon} />
+        {title}
+      </div>
+
+      <h2
+        class={`font-heading font-bold text-3xl lg:text-4xl xl:text-5xl leading-tight ${activeTheme.textPrimary}`}
+      >
+        {title}
+      </h2>
+      <p class={`text-base lg:text-lg leading-relaxed max-w-lg ${activeTheme.textBody}`}>
+        {description}
+      </p>
+
+      {
+        stats.length > 0 && (
+          <div class="w-full grid grid-cols-3 gap-3 md:gap-4 mt-2 stagger-children">
+            {stats.slice(0, 3).map((stat) => (
+              <div
+                class={`reveal-up p-4 rounded-2xl border ${activeTheme.statBg} ${activeTheme.statBorder} ${activeTheme.statGlow} shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+              >
+                <div
+                  class={`font-heading font-extrabold text-2xl lg:text-3xl ${activeTheme.accentText}`}
+                >
+                  {stat.value}
+                </div>
+                <div
+                  class={`text-sm lg:text-base mt-1 font-medium ${activeTheme.textBody}`}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      <a
+        href={buttonUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`mt-4 inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 ${activeTheme.button}`}
+      >
+        {buttonText}
+        <svg
+          class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2.5"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Image Column -->
+    <div
+      class={`${imageReveal} w-full relative flex items-center justify-center`}
+      style="transition-delay: 200ms;"
+    >
+      <!-- Glow behind image -->
+      <div
+        class="absolute inset-0 rounded-3xl pointer-events-none"
+        style={`background: radial-gradient(circle at center, ${activeTheme.imageGlow} 0%, transparent 70%); filter: blur(30px);`}
+      ></div>
+      <Image
+        src={image}
+        alt={`Visual ${title}`}
+        class="w-full h-auto max-h-[55vh] object-contain relative z-10 transition-transform duration-500 hover:scale-[1.03]"
+        style="filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.06));"
+      />
+    </div>
+  </div>
+</section>

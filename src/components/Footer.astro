@@ -1,0 +1,193 @@
+---
+import logoJateng from "../assets/images/logo-jateng.png";
+---
+
+<footer class="relative bg-footer-bg border-t border-border-ui py-16 snap-start">
+  <!-- Gradient top border accent -->
+  <div
+    class="absolute top-0 left-0 right-0 h-px"
+    style="background: linear-gradient(90deg, transparent, #50a755, #3b82f6, #10c98f, transparent);"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Footer Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <!-- Brand Column -->
+      <div class="flex flex-col gap-4 lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="shrink-0">
+        <img
+          src={logoJateng.src}
+          alt="Logo Jawa Tengah"
+          class="w-10 h-10 object-contain"
+        />
+</div>
+          <div class="flex flex-col">
+            <span class="font-heading font-bold text-base leading-tight text-text-primary">
+              Ekosistem Data
+            </span>
+            <span class="text-[11px] font-medium text-text-muted leading-tight tracking-wide uppercase">
+              Jawa Tengah
+            </span>
+          </div>
+        </div>
+        <p class="text-sm text-text-muted leading-relaxed">
+          Portal data terpadu Provinsi Jawa Tengah untuk mendukung transparansi
+          dan tata kelola pemerintahan berbasis data.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-3 mt-1">
+          <a
+            href="#"
+            class="w-9 h-9 rounded-lg bg-white border border-border-ui flex items-center justify-center text-text-muted hover:text-blue-primary hover:border-blue-border transition-all duration-300 hover:-translate-y-0.5"
+            aria-label="Instagram"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-lg bg-white border border-border-ui flex items-center justify-center text-text-muted hover:text-blue-primary hover:border-blue-border transition-all duration-300 hover:-translate-y-0.5"
+            aria-label="Twitter / X"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-lg bg-white border border-border-ui flex items-center justify-center text-text-muted hover:text-red-500 hover:border-red-200 transition-all duration-300 hover:-translate-y-0.5"
+            aria-label="YouTube"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Portal Links -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-heading font-semibold text-text-primary text-sm tracking-wide">
+          Portal
+        </h4>
+        <div class="flex flex-col gap-2.5">
+          {/*
+          <a
+            href="https://data.jatengprov.go.id"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-text-body hover:text-orange-primary transition-colors duration-300 inline-flex items-center gap-2 group"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-primary opacity-50 group-hover:opacity-100 transition-opacity duration-300"></span>
+            Open Data Jateng
+          </a>
+          */}
+          <a
+            href="https://satudata.jatengprov.go.id"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-text-body hover:text-blue-primary transition-colors duration-300 inline-flex items-center gap-2 group"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-primary opacity-50 group-hover:opacity-100 transition-opacity duration-300"></span>
+            Satu Data Jateng
+          </a>
+          <a
+            href="https://satupeta.jatengprov.go.id"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-text-body hover:text-green-primary transition-colors duration-300 inline-flex items-center gap-2 group"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-green-primary opacity-50 group-hover:opacity-100 transition-opacity duration-300"></span>
+            Satu Peta Jateng
+          </a>
+        </div>
+      </div>
+
+      <!-- Informasi -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-heading font-semibold text-text-primary text-sm tracking-wide">
+          Informasi
+        </h4>
+        <div class="flex flex-col gap-2.5">
+          <a
+            href="#"
+            class="text-sm text-text-body hover:text-text-primary transition-colors duration-300"
+          >
+            Tentang Kami
+          </a>
+          <a
+            href="#"
+            class="text-sm text-text-body hover:text-text-primary transition-colors duration-300"
+          >
+            Kebijakan Privasi
+          </a>
+          <a
+            href="#"
+            class="text-sm text-text-body hover:text-text-primary transition-colors duration-300"
+          >
+            Syarat & Ketentuan
+          </a>
+          <a
+            href="#"
+            class="text-sm text-text-body hover:text-text-primary transition-colors duration-300"
+          >
+            FAQ
+          </a>
+        </div>
+      </div>
+
+      <!-- Kontak -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-heading font-semibold text-text-primary text-sm tracking-wide">
+          Kontak
+        </h4>
+        <div class="flex flex-col gap-2.5">
+          <a
+            href="mailto:data@jatengprov.go.id"
+            class="text-sm text-text-body hover:text-text-primary transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-4 h-4 text-text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            statistik@jatengprov.go.id
+          </a>
+          <p class="text-sm text-text-muted leading-relaxed flex items-start gap-2">
+            <svg class="w-4 h-4 text-text-muted shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+            </svg>
+            Dinas Komunikasi, Informatika dan Digital<br />
+            Provinsi Jawa Tengah
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider + Copyright -->
+    <div class="mt-14 pt-8 border-t border-border-ui flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-text-muted">
+        &copy; 2026 Ekosistem Data Jateng. All rights reserved.
+      </p>
+      <a
+        href="#"
+        id="back-to-top"
+        class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-primary transition-colors duration-300 group"
+      >
+        Kembali ke atas
+        <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const backToTop = document.getElementById("back-to-top");
+  backToTop?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

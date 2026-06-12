@@ -1,0 +1,192 @@
+---
+import logoJateng from "../assets/images/logo-jateng.png";
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-border-ui transition-shadow duration-300"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between"
+  >
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 group shrink-0">
+      <div class="shrink-0">
+        <img
+          src={logoJateng.src}
+          alt="Logo Jawa Tengah"
+          class="w-10 h-10 object-contain"
+        />
+</div>
+      <div class="flex flex-col">
+        <span class="font-heading font-bold text-base leading-tight text-text-primary">
+          Ekosistem Data
+        </span>
+        <span class="text-[11px] font-medium text-text-muted leading-tight tracking-wide uppercase">
+          Jawa Tengah
+        </span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-1 font-medium text-sm">
+      {/*
+      <a
+        href="#open-data"
+        data-section="open-data"
+        class="nav-link relative px-4 py-2 rounded-lg text-text-body hover:text-orange-primary hover:bg-orange-light transition-all duration-300"
+      >
+        Open Data
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-orange-primary rounded-full transition-all duration-300"></span>
+      </a>
+      */}
+      <a
+        href="#satu-data"
+        data-section="satu-data"
+        class="nav-link relative px-4 py-2 rounded-lg text-text-body hover:text-blue-primary hover:bg-blue-light transition-all duration-300"
+      >
+        Satu Data
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-primary rounded-full transition-all duration-300"></span>
+      </a>
+      <a
+        href="#satu-peta"
+        data-section="satu-peta"
+        class="nav-link relative px-4 py-2 rounded-lg text-text-body hover:text-green-primary hover:bg-green-light transition-all duration-300"
+      >
+        Satu Peta
+        <span class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-green-primary rounded-full transition-all duration-300"></span>
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5 rounded-lg hover:bg-surface transition-colors duration-300 group"
+      aria-label="Toggle menu"
+    >
+      <span
+        class="block w-5 h-0.5 bg-text-primary rounded-full transition-all duration-300 origin-center group-[.is-open]:rotate-45 group-[.is-open]:translate-y-2"
+      ></span>
+      <span
+        class="block w-5 h-0.5 bg-text-primary rounded-full transition-all duration-300 group-[.is-open]:opacity-0"
+      ></span>
+      <span
+        class="block w-5 h-0.5 bg-text-primary rounded-full transition-all duration-300 origin-center group-[.is-open]:-rotate-45 group-[.is-open]:-translate-y-2"
+      ></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <nav
+    id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/95 backdrop-blur-xl border-t border-border-ui"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+      <a
+        href="#open-data"
+        data-section="open-data"
+        class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-text-body hover:text-orange-primary hover:bg-orange-light transition-all duration-300"
+      >
+        <span class="w-2 h-2 rounded-full bg-orange-primary shrink-0"></span>
+        Open Data
+      </a>
+      <a
+        href="#satu-data"
+        data-section="satu-data"
+        class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-text-body hover:text-blue-primary hover:bg-blue-light transition-all duration-300"
+      >
+        <span class="w-2 h-2 rounded-full bg-blue-primary shrink-0"></span>
+        Satu Data
+      </a>
+      <a
+        href="#satu-peta"
+        data-section="satu-peta"
+        class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-text-body hover:text-green-primary hover:bg-green-light transition-all duration-300"
+      >
+        <span class="w-2 h-2 rounded-full bg-green-primary shrink-0"></span>
+        Satu Peta
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // ── Mobile Menu Toggle ──────────────────────────────
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn?.addEventListener("click", () => {
+    menuBtn.classList.toggle("is-open");
+    if (mobileMenu) {
+      const isOpen = menuBtn.classList.contains("is-open");
+      mobileMenu.style.maxHeight = isOpen
+        ? `${mobileMenu.scrollHeight}px`
+        : "0";
+    }
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuBtn?.classList.remove("is-open");
+      if (mobileMenu) mobileMenu.style.maxHeight = "0";
+    });
+  });
+
+  // ── Active Section Tracking ─────────────────────────
+  const header = document.getElementById("site-header");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
+  const sectionIds = ["open-data", "satu-data", "satu-peta"];
+
+  const colorMap: Record<string, { text: string; bg: string }> = {
+    "open-data": { text: "text-orange-primary", bg: "bg-orange-light" },
+    "satu-data": { text: "text-blue-primary", bg: "bg-blue-light" },
+    "satu-peta": { text: "text-green-primary", bg: "bg-green-light" },
+  };
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const activeId = entry.target.id;
+
+          navLinks.forEach((link) => {
+            const linkSection = link.dataset.section;
+            const indicator = link.querySelector<HTMLElement>(".nav-indicator");
+
+            if (linkSection === activeId) {
+              link.classList.add(colorMap[activeId].text, colorMap[activeId].bg);
+              if (indicator) indicator.style.width = "60%";
+            } else {
+              // Remove all possible active classes
+              Object.values(colorMap).forEach((c) => {
+                link.classList.remove(c.text, c.bg);
+              });
+              if (indicator) indicator.style.width = "0";
+            }
+          });
+        }
+      });
+    },
+    { root: null, rootMargin: "-20% 0px -60% 0px", threshold: 0 },
+  );
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) sectionObserver.observe(section);
+  });
+
+  // ── Navbar shadow on scroll ─────────────────────────
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!header) return;
+      if (window.scrollY > 10) {
+        header.classList.add("shadow-sm");
+      } else {
+        header.classList.remove("shadow-sm");
+      }
+    },
+    { passive: true },
+  );
+</script>
