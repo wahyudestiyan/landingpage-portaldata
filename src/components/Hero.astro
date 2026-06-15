@@ -2,19 +2,27 @@
 import { Image } from "astro:assets";
 
 import heroImage from "../assets/images/hero.png";
-import borobudurBg from "../assets/images/borobudur-bg.png";
+import jatengsiluetBg from "../assets/images/borobudur-jateng.png";
 ---
 
 <section
   class="relative h-[100vh] flex items-center overflow-hidden bg-white snap-start"
 >
   <!-- Background Borobudur with gradient overlay -->
-  <div class="absolute inset-0 z-0">
-    <Image
-      src={borobudurBg}
-      alt="Siluet Borobudur"
-      class="absolute bottom-0 left-0 w-full h-[100%] lg:h-[85%] object-cover object-bottom opacity-[0.08] pointer-events-none"
-    />
+<Image
+  src={jatengsiluetBg}
+  alt="Siluet Jawa Tengah"
+  class="absolute
+         bottom-0
+         left-0
+         w-full
+         h-auto
+         object-cover
+         object-bottom
+         opacity-80
+         pointer-events-none
+         select-none"
+/>
     <!-- Radial gradient for depth -->
     <div
       class="absolute inset-0 pointer-events-none"
